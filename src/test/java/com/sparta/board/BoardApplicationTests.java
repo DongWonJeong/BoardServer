@@ -1,4 +1,4 @@
-package org.sprta.board;
+package com.sprta.board;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
