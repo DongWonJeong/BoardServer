@@ -7,6 +7,7 @@ import com.sparta.board.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,7 +33,14 @@ public class BoardService {
     //게시글 전체 조회
     public List<BoardResponseDto> getBoards() {
         // DB 조회
-        return boardRepository.findAllByOrderByNowDateDesc().stream().map(BoardResponseDto::new).toList();
+        List<BoardResponseDto> boardResponseDto = new ArrayList<>();
+        List<Board> boards = boardRepository.findAllByOrderByNowDateDesc();
+
+        for (Board board : boards) {
+            boardResponseDto.add(new BoardResponseDto(board));
+        }
+
+        return boardResponseDto;
     }
 
     //게시글 선택 조회
