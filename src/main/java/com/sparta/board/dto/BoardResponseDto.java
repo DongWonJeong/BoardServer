@@ -19,6 +19,7 @@ public class BoardResponseDto {
     //작성일
     private Date nowDate;
 
+    //Board 객체를 입력받아서 BoardResponseDto객체를 생성.
     public BoardResponseDto(Board board) {
         this.id = board.getId();
         this.title = board.getTitle();
